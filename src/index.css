@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400..600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* === Brand core === */
+  --color-primary: #0F172A;
+  --color-secondary: #374151;
+  --color-accent: #A87C3F;
+  --color-accent-dark: #C9A467;
+  --color-navy: #0A0F1C;
+  --color-light: #F5F6F8;
+  --color-muted: #F1F3F6;
+  --color-border: #CBD5E1;
+  --color-success: #1D9E75;
+
+  /* === Dark mode surface scale (custom, not Tailwind defaults) === */
+  --color-navy-50: #1A2236;
+  --color-navy-100: #131B2C;
+  --color-navy-200: #0D1424;
+
+  /* === Semantic status (beyond success) === */
+  --color-warning: #B9852E;
+  --color-danger: #B3463F;
+  --color-info: #3B6FA0;
+
+  /* === Typography === */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* === Radius scale (banned: rounded-3xl, rounded-full on cards/buttons) === */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* === Shadow scale — soft, low-opacity, navy-tinted (not default gray) === */
+  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 4px 12px -2px rgb(15 23 42 / 0.06);
+  --shadow-card-hover: 0 2px 4px 0 rgb(15 23 42 / 0.06), 0 12px 24px -4px rgb(15 23 42 / 0.10);
+  --shadow-elevated: 0 8px 30px -4px rgb(15 23 42 / 0.18);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: var(--font-sans);
+    background-color: var(--color-light);
+    color: var(--color-primary);
+  }
+
+  html.dark {
+    --color-light: #0A0F1C;
+    --color-muted: #131B2C;
+    --color-border: #2A3450;
+    --color-secondary: #B8C0D0;
+    --color-accent: #C9A467;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--color-light);
+    color: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
